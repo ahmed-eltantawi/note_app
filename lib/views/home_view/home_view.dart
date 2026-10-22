@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:note_app_local_data_base/views/home_view/widgets/add_note_bottom_sheet.dart';
 import 'package:note_app_local_data_base/views/home_view/widgets/home_view_app_bar.dart';
 import 'package:note_app_local_data_base/views/home_view/widgets/home_view_body.dart';
 
@@ -8,6 +9,16 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          showModalBottomSheet(
+            context: context,
+            builder: (context) {
+              return AddNoteBottomSheet();
+            },
+          );
+        },
+      ),
       body: Column(
         children: [
           const SizedBox(height: 30),

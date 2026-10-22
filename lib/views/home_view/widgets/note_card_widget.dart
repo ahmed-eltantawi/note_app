@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:note_app_local_data_base/models/note_model.dart';
 
 class NoteCardWidget extends StatelessWidget {
   const NoteCardWidget({
     super.key,
-    required this.title,
-    required this.subTitle,
-    required this.date,
+    required this.note,
     required this.backgroundColor,
   });
-  final String title;
-  final String subTitle;
-  final DateTime date;
+  final NoteModel note;
   final Color backgroundColor;
 
   @override
@@ -23,7 +20,6 @@ class NoteCardWidget extends StatelessWidget {
           color: backgroundColor,
           borderRadius: .circular(16),
         ),
-        height: 250,
         width: double.infinity,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 26),
@@ -34,7 +30,7 @@ class NoteCardWidget extends StatelessWidget {
                 children: [
                   // -- title--
                   Text(
-                    title,
+                    note.title,
                     style: TextStyle(color: Colors.black, fontSize: 32),
                   ),
 
@@ -53,21 +49,19 @@ class NoteCardWidget extends StatelessWidget {
                     child: SizedBox(
                       width: double.infinity,
                       child: Text(
-                        subTitle,
+                        note.subTitle,
                         style: TextStyle(color: Colors.black, fontSize: 16),
                         overflow: TextOverflow.ellipsis,
-                        maxLines: 2,
+                        maxLines: 3,
                       ),
                     ),
                   ),
-
-                  Spacer(),
 
                   // -- date time --
                   Align(
                     alignment: .centerRight,
                     child: Text(
-                      date.toString().substring(0, 10),
+                      note.date.toString().substring(0, 10),
                       style: TextStyle(color: Colors.black),
                     ),
                   ),
