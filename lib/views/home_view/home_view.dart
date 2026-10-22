@@ -7,12 +7,12 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Column(
         children: [
-          SizedBox(height: 30),
-          HomeViewAppBar(),
-          SizedBox(height: 10),
+          const SizedBox(height: 30),
+          const HomeViewAppBar(),
+          const SizedBox(height: 10),
 
           Expanded(child: HomeViewBody()),
         ],
